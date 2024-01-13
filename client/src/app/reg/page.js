@@ -1,21 +1,42 @@
-'udr client';
+'use client';
 
-import Header from '../components/Header';
+import style from './page.module.css';
+import Header from '../components/Header/Header';
+import Inputs from '../components/Inputs/Inputs';
+import ButtonLink from '../components/Buttons/ButtonLink';
+import Link from 'next/link';
 
 export default function Reg() {
+  const arr = [
+    { inputName: 'Name', type: 'text' },
+    { inputName: 'Surname', type: 'text' },
+    { inputName: 'Email', type: 'text' },
+    { inputName: 'Password', type: 'password' },
+    { inputName: 'Age', type: 'number' },
+  ];
+
   return (
     <div>
       <Header />
 
-      <h1>Registration</h1>
+      <section>
+        <div className={style.container}>
+          <div className={style.wrapper}>
+            <h1>Sign up</h1>
 
-      <input type='text' placeholder='name...' />
-      <input type='text' placeholder='surname...' />
-      <input type='text' placeholder='email...' />
-      <input type='text' placeholder='password...' />
-      <input type='text' placeholder='age...' />
+            <Inputs arr={arr} />
 
-      <button>Sign up</button>
+            <ButtonLink text='Sign Up' href='/' />
+
+            <p>
+              Already have an account?
+              <span>
+                <Link href='/auth'>Sign in</Link>
+              </span>
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

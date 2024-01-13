@@ -1,18 +1,39 @@
 'use client';
 
-import Header from '../components/Header';
+import style from './page.module.css';
+import Header from '../components/Header/Header';
+import Inputs from '../components/Inputs/Inputs';
+import ButtonLink from '../components/Buttons/ButtonLink';
+import Link from 'next/link';
 
 export default function Auth() {
+  const arr = [
+    { inputName: 'Email', type: 'text' },
+    { inputName: 'Password', type: 'password' },
+  ];
+
   return (
     <div>
       <Header />
 
-      <h1>Authorization</h1>
+      <section>
+        <div className={style.container}>
+          <div className={style.wrapper}>
+            <h1>Sign in</h1>
 
-      <input type='text' placeholder='email...' />
-      <input type='text' placeholder='password...' />
+            <Inputs arr={arr} />
 
-      <button>Sign in</button>
+            <ButtonLink text='Sign in' href='/' />
+
+            <p>
+              Don't have an account yet?
+              <span>
+                <Link href='/reg'> Sign up</Link>
+              </span>
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

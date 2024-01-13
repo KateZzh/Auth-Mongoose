@@ -1,0 +1,36 @@
+.wrapper {
+  background-color: #f7f7f8;
+}
+
+.wrapper .container {
+  max-width: 1170px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+  height: 100%;
+}
+
+.wrapper .container nav {
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wrapper .container nav .btnNavActive {
+  border-radius: 15px;
+  border: 2px solid var(--Neutral-07, #0b6bcb);
+  width: 70px;
+  text-align: center;
+  padding: 5px 0;
+}
+
+.wrapper .container nav .btnNav {
+  width: 70px;
+  text-align: center;
+}
+.wrapper .container nav .wrapperRight {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}

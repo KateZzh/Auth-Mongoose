@@ -1,0 +1,27 @@
+section .container {
+  max-width: 1170px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 15px;
+  height: 100%;
+}
+
+section .container .wrapper {
+  margin: 30px auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  background-color: #f7f7f8;
+  border-radius: 12px;
+  max-width: 500px;
+}
+
+section .container .wrapper p span a {
+  color: #0b6bcb;
+}
+
+section .container .wrapper button a {
+  color: #fff;
+}

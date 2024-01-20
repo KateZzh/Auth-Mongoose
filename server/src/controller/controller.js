@@ -47,7 +47,7 @@ route.post('/auth', async (req, res) => {
   }
 });
 
-route.put('/', async (req, res) => {
+route.put('/:_id', async (req, res) => {
   try {
     const data = await updateUser(req.params._id, req.body);
     buildResponse(res, 200, data);

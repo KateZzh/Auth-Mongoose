@@ -1,0 +1,97 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Auth-Mongoose",
+    "version": "1.0.0",
+    "description": "Приложение создано для реализации регистрации и авторизации с использованием Mongoose. Также реализованы CRUD-запросы для users"
+  },
+  "paths": {
+    "/user": {
+      "get": {
+        "tags": ["USER"],
+        "summary": "Получение всех пользователей",
+        "description": "Получение всех пользователей табл. users",
+        "parameters": [],
+        "requestBody": {},
+        "responses": {
+          "200": {
+            "description": "Успешный ответ имеет вид:",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "_id": "659c36359440b9a3ca66b547",
+                    "name": "Test1",
+                    "surname": "Test1",
+                    "email": "Test1@gmail.com",
+                    "password": "$2b$10$7LfipPSTsw3wUFy2.wU.LON2/cgbK9zbbQUX1nRZ2uA7K1NaJjLOu",
+                    "age": 20,
+                    "__v": 0
+                  }
+                ]
+              }
+            }
+          },
+          "404": {},
+          "500": {}
+        }
+      }
+    },
+
+    "/user/{_id}": {
+      "put": {
+        "tags": ["USER"],
+        "summary": "Обновление пользователя",
+        "description": "Обновление пользователя по _id",
+        "parameters": [
+          {
+            "name": "_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": { "type": "string" },
+                  "surname": { "type": "string" },
+                  "email": { "type": "string" },
+                  "password": { "type": "string" },
+                  "age": { "type": "number" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Успешный ответ имеет вид:",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "_id": "123",
+                    "name": "Test",
+                    "surname": "Test",
+                    "email": "Test@gmail.com",
+                    "password": "12345678",
+                    "age": 15,
+                    "__v": 0
+                  }
+                ]
+              }
+            }
+          },
+          "404": {},
+          "500": {}
+        }
+      }
+    }
+  }
+}

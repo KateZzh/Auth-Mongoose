@@ -11,8 +11,6 @@
         "tags": ["USER"],
         "summary": "Получение всех пользователей",
         "description": "Получение всех пользователей табл. users",
-        "parameters": [],
-        "requestBody": {},
         "responses": {
           "200": {
             "description": "Успешный ответ имеет вид:",
@@ -32,8 +30,96 @@
               }
             }
           },
-          "404": {},
-          "500": {}
+          "404": {}
+        }
+      }
+    },
+
+    "/user/reg/": {
+      "post": {
+        "tags": ["USER"],
+        "summary": "Создать пользователя",
+        "description": "Вы создадите пользователя по name, surname, email, password, age",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": { "type": "string" },
+                  "surname": { "type": "string" },
+                  "email": { "type": "string" },
+                  "password": { "type": "string" },
+                  "age": { "type": "number" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Успешный ответ имеет вид:",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "name": "Test1",
+                    "surname": "Test1",
+                    "email": "Test1@gmail.com",
+                    "password": "$2b$10$7LfipPSTsw3wUFy2.wU.LON2/cgbK9zbbQUX1nRZ2uA7K1NaJjLOu",
+                    "age": 20,
+                    "_id": "659c36359440b9a3ca66b547",
+                    "__v": 0
+                  }
+                ]
+              }
+            }
+          },
+          "404": {}
+        }
+      }
+    },
+
+    "/user/auth/": {
+      "post": {
+        "tags": ["USER"],
+        "summary": "Авторизация пользователя",
+        "description": "Авторизация пользователя по email, password",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": { "type": "string" },
+                  "password": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Успешный ответ имеет вид:",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "_id": "659c36359440b9a3ca66b547",
+                    "name": "Test1",
+                    "surname": "Test1",
+                    "email": "Test1@gmail.com",
+                    "password": "$2b$10$7LfipPSTsw3wUFy2.wU.LON2/cgbK9zbbQUX1nRZ2uA7K1NaJjLOu",
+                    "age": 20,
+                    "__v": 0
+                  }
+                ]
+              }
+            }
+          },
+          "404": {}
         }
       }
     },
@@ -88,8 +174,7 @@
               }
             }
           },
-          "404": {},
-          "500": {}
+          "404": {}
         }
       }
     }
